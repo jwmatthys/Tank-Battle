@@ -7,7 +7,6 @@ public class TankHealth : MonoBehaviour
     public float m_StartingHealth = 100f;          
     public Slider m_Slider;                        
     public Image m_FillImage;
-    public Texture2D m_GradientTexture;
     public Color m_FullHealthColor = Color.green;  
     public Color m_ZeroHealthColor = Color.red;    
     public GameObject m_ExplosionPrefab;
@@ -51,9 +50,7 @@ public class TankHealth : MonoBehaviour
     {
         // Adjust the value and colour of the slider.
         m_Slider.value = m_CurrentHealth;
-        Color healthColor = m_GradientTexture.GetPixelBilinear(m_CurrentHealth / m_StartingHealth, 0f);
-        //m_FillImage.color = Color.Lerp (m_ZeroHealthColor, m_FullHealthColor, m_CurrentHealth/m_StartingHealth);
-        m_FillImage.color = healthColor;
+        m_FillImage.color = Color.Lerp (m_ZeroHealthColor, m_FullHealthColor, m_CurrentHealth/m_StartingHealth);
     }
 
 
